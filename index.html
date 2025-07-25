@@ -153,13 +153,18 @@
 
   <div class="post-links">
     <h3>Latest Posts</h3>
-    <ul>
-      <li><a href="posts/post1.html">Reverse Osmosis: Resilient Water for Modern Life</a></li>
-    </ul>
+    <div id="post-list"></div>
+    <script>
+      fetch('posts/posts-list.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('post-list').innerHTML = html;
+        });
+    </script>
   </div>
 
   <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
-    Some links on this site are affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you.
+    Some links on this site may be affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you.
     <br><br>
     I only ever link to things I’ve personally vetted and believe support resilience, lightness, and wisdom.
     <br><br>
