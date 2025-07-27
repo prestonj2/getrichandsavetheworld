@@ -1,1 +1,6 @@
 promptnotes.txt
+# Don't track dev tools or temp/test files
+
+posts/post*.test.html
+SYSTEM_ARCHITECTURE_PRIVATE.md
+
