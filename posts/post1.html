@@ -6,26 +6,90 @@
   <title>Reverse Osmosis: Resilient Water for Modern Life</title>
   <style>
     body {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0;
       font-family: "Georgia", "Times New Roman", serif;
       background-color: #f5f2eb;
       color: #2a2a2a;
-      max-width: 800px;
-      margin: auto;
-      padding: 2em 1em;
       line-height: 1.6;
     }
 
-    h1 {
-      font-size: 2em;
+    #sidebar {
+      width: 260px;
+      background: linear-gradient(to bottom, #faf8f3, #f0ede6);
+      padding: 1.5em;
+      border-left: 1px solid #dcd7cd;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+      font-family: system-ui, sans-serif;
+      font-size: 0.96em;
+      box-shadow: -2px 0 6px rgba(0, 0, 0, 0.03);
+    }
+
+    #sidebar h2 {
+      font-size: 1.1em;
+      font-weight: bold;
       margin-top: 0;
+      margin-bottom: 1em;
+      color: #444;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    #post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #post-list li {
+      margin-bottom: 0.75em;
+      border-left: 3px solid transparent;
+      padding-left: 0.5em;
+      transition: border-color 0.2s ease;
+    }
+
+    #post-list li:hover {
+      border-left: 3px solid #8ba38e;
+    }
+
+    #post-list a {
+      text-decoration: none;
+      color: #3a5342;
+      font-weight: 500;
+    }
+
+    #post-list a:hover {
+      text-decoration: underline;
+    }
+
+    #main-content {
+      padding: 2em 1.5em 2em 1.5em;
+      margin-right: 280px;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 2.5em;
       text-align: center;
+      margin-bottom: 0.2em;
     }
 
     h2 {
       font-weight: normal;
       text-align: center;
       color: #555;
+      margin-top: 0;
       margin-bottom: 1.5em;
+    }
+
+    h3 {
+      margin-top: 2em;
+      color: #333;
     }
 
     a {
@@ -55,6 +119,10 @@
       margin: 2em auto;
     }
 
+    ul {
+      padding-left: 1.5em;
+    }
+
     footer {
       margin-top: 5em;
       font-size: 0.9em;
@@ -67,94 +135,120 @@
 </head>
 <body>
 
-  <p><a href="../index.html">← Return Home</a></p>
-
-  <h1>Reverse Osmosis: Resilient Water for Modern Life</h1>
-  <h2>Clean water, fewer resources, more peace of mind</h2>
-
-  <p>Reverse osmosis (RO) water filtration systems offer a powerful solution for anyone who wants clean, affordable drinking water — without relying on bottled water or expensive service plans.</p>
-
-  <p>Technically, the lowest-impact move is to drink your tap water. But realistically, many people don’t trust the safety, taste, or quality — especially those on private wells or aging infrastructure. RO systems strike a balance: you get dramatically cleaner water, using your existing supply, while avoiding the waste, cost, and carbon impact of bottled water.</p>
-
-  <h3>What Makes RO Different?</h3>
-
-  <p>Reverse osmosis forces water through a semipermeable membrane, removing particles down to 0.0001 microns. That means it can eliminate:</p>
-  <ul>
-    <li>Lead and heavy metals</li>
-    <li>Nitrates, fluoride, and chlorine</li>
-    <li>PFAS (“forever chemicals”)</li>
-    <li>Pharmaceutical residues</li>
-    <li>Microplastics and bacteria</li>
-  </ul>
-
-  <p>The result? Peace of mind, especially for families or those on questionable water supplies.</p>
-
-  <h3>Environmental and Financial Impact</h3>
-
-  <p>Let’s talk lifecycle analysis. A family drinking two liters of bottled water per person per day can generate hundreds of plastic bottles per month. Over a year, that’s:</p>
-  <ul>
-    <li>Thousands of bottles manufactured, transported, and discarded</li>
-    <li>Hundreds of dollars in cost (often over $500/year)</li>
-    <li>Significant fossil fuel emissions from shipping and plastic production</li>
-  </ul>
-
-  <p>By contrast, an RO system produces very little plastic waste — mainly replacement filters — and uses a modest amount of water to flush impurities. Many systems waste 2–4 gallons per gallon of clean water, but newer designs are more efficient (look for 1.5:1 or better).</p>
-
-  <blockquote>"Resilience isn’t about perfection — it’s about thoughtful tradeoffs."</blockquote>
-
-  <h3>System Layout</h3>
-
-  <p>Here’s a simplified flow:</p>
-  <ul>
-    <li><strong>Tap water inlet</strong> → Sediment Filter → Carbon Block (GAC)</li>
-    <li>→ Reverse Osmosis Membrane (produces two outputs)</li>
-    <ul>
-      <li>→ Storage Tank → Final Carbon Filter → Faucet</li>
-      <li>→ Wastewater drain line</li>
+  <div id="sidebar">
+    <h2>📚 Posts</h2>
+    <ul id="post-list">
+      <li>Loading posts...</li>
     </ul>
-  </ul>
+  </div>
 
-  <h3>Recommended System</h3>
+  <div id="main-content">
+    <p><a href="../index.html">← Return Home</a></p>
 
-  <p>If you’re looking for a high-quality, long-lasting system, I personally recommend:</p>
+    <h1>Reverse Osmosis: Resilient Water for Modern Life</h1>
+    <h2>Clean water, fewer resources, more peace of mind</h2>
 
-  <p>
-    👉 <a href="https://www.amazon.com/dp/B005LJ8EXU" target="_blank">123Filter 5-Stage RO System</a>
-  </p>
+    <p>Reverse osmosis (RO) water filtration systems offer a powerful solution for anyone who wants clean, affordable drinking water — without relying on bottled water or expensive service plans.</p>
 
-  <p>And for ongoing maintenance, this kit includes a year’s worth of replacement filters:</p>
+    <p>Technically, the lowest-impact move is to drink your tap water. But realistically, many people don’t trust the safety, taste, or quality — especially those on private wells or aging infrastructure. RO systems strike a balance: you get dramatically cleaner water, using your existing supply, while avoiding the waste, cost, and carbon impact of bottled water.</p>
 
-  <p>
-    👉 <a href="https://www.amazon.com/dp/B004HL32EE" target="_blank">123Filter Replacement Filter Pack</a>
-  </p>
+    <h3>What Makes RO Different?</h3>
 
-  <h3>Installation Tips</h3>
-  <ul>
-    <li>Install under a sink or in a basement — plan for tubing access to a dedicated faucet</li>
-    <li>Flush filters before use, and sanitize tank annually</li>
-    <li>Check your water pressure — many systems require 40–80 PSI</li>
-  </ul>
+    <p>Reverse osmosis forces water through a semipermeable membrane, removing particles down to 0.0001 microns. That means it can eliminate:</p>
+    <ul>
+      <li>Lead and heavy metals</li>
+      <li>Nitrates, fluoride, and chlorine</li>
+      <li>PFAS (“forever chemicals”)</li>
+      <li>Pharmaceutical residues</li>
+      <li>Microplastics and bacteria</li>
+    </ul>
 
-  <p>RO systems are fairly easy to install with common tools. If you’re handy with plumbing tape and screwdrivers, you’ll probably do just fine.</p>
+    <p>The result? Peace of mind, especially for families or those on questionable water supplies.</p>
 
-  <h3>Final Thought</h3>
+    <h3>Environmental and Financial Impact</h3>
 
-  <p>RO water isn’t just about taste — it’s about control. When you know what’s in your water, you drink more of it, waste less money, and reduce your reliance on disposable systems.</p>
+    <p>Let’s talk lifecycle analysis. A family drinking two liters of bottled water per person per day can generate hundreds of plastic bottles per month. Over a year, that’s:</p>
+    <ul>
+      <li>Thousands of bottles manufactured, transported, and discarded</li>
+      <li>Hundreds of dollars in cost (often over $500/year)</li>
+      <li>Significant fossil fuel emissions from shipping and plastic production</li>
+    </ul>
 
-  <p>And if you don’t love your well water or can’t trust your town’s pipes, this is a small step that can bring big peace of mind.</p>
+    <p>By contrast, an RO system produces very little plastic waste — mainly replacement filters — and uses a modest amount of water to flush impurities. Many systems waste 2–4 gallons per gallon of clean water, but newer designs are more efficient (look for 1.5:1 or better).</p>
 
-  <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
-    Note: Some links on this page may be affiliate links. That means I may earn a small commission — at no cost to you — if you choose to purchase. I only recommend tools I’ve personally used or vetted.
-  </p>
+    <blockquote>"Resilience isn’t about perfection — it’s about thoughtful tradeoffs."</blockquote>
 
-  <p style="text-align: center; margin-top: 3em;">
-    <a href="../index.html">← Return to Home</a>
-  </p>
+    <h3>System Layout</h3>
 
-  <footer>
-    &copy; 2025 GetRichAndSaveTheWorld.com — Clean water, clear conscience.
-  </footer>
-<script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <p>Here’s a simplified flow:</p>
+    <ul>
+      <li><strong>Tap water inlet</strong> → Sediment Filter → Carbon Block (GAC)</li>
+      <li>→ Reverse Osmosis Membrane (produces two outputs)
+        <ul>
+          <li>→ Storage Tank → Final Carbon Filter → Faucet</li>
+          <li>→ Wastewater drain line</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Recommended System</h3>
+
+    <p>If you’re looking for a high-quality, long-lasting system, I personally recommend:</p>
+
+    <p>
+      👉 <a href="https://www.amazon.com/dp/B005LJ8EXU" target="_blank">123Filter 5-Stage RO System</a>
+    </p>
+
+    <p>And for ongoing maintenance, this kit includes a year’s worth of replacement filters:</p>
+
+    <p>
+      👉 <a href="https://www.amazon.com/dp/B004HL32EE" target="_blank">123Filter Replacement Filter Pack</a>
+    </p>
+
+    <h3>Installation Tips</h3>
+    <ul>
+      <li>Install under a sink or in a basement — plan for tubing access to a dedicated faucet</li>
+      <li>Flush filters before use, and sanitize tank annually</li>
+      <li>Check your water pressure — many systems require 40–80 PSI</li>
+    </ul>
+
+    <p>RO systems are fairly easy to install with common tools. If you’re handy with plumbing tape and screwdrivers, you’ll probably do just fine.</p>
+
+    <h3>Final Thought</h3>
+
+    <p>RO water isn’t just about taste — it’s about control. When you know what’s in your water, you drink more of it, waste less money, and reduce your reliance on disposable systems.</p>
+
+    <p>And if you don’t love your well water or can’t trust your town’s pipes, this is a small step that can bring big peace of mind.</p>
+
+    <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
+      Note: Some links on this page may be affiliate links. That means I may earn a small commission — at no cost to you — if you choose to purchase. I only recommend tools I’ve personally used or vetted.
+    </p>
+
+    <footer>
+      &copy; 2025 GetRichAndSaveTheWorld.com — Clean water, clear conscience.
+    </footer>
+  </div>
+
+  <!-- Sidebar Loader -->
+  <script>
+    fetch("posts.json")
+      .then((res) => res.json())
+      .then((posts) => {
+        const list = document.getElementById("post-list");
+        list.innerHTML = "";
+        posts.forEach((post) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "../" + post.url;
+          a.textContent = post.title;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      });
+  </script>
+
+  <!-- GoatCounter -->
+  <script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

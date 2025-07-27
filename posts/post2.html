@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eating Light: A Resilient Diet for Health and the Planet</title>
   <style>
     body {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0;
       font-family: "Georgia", "Times New Roman", serif;
       background-color: #f5f2eb;
       color: #2a2a2a;
-      max-width: 800px;
-      margin: auto;
-      padding: 2em 1em;
       line-height: 1.6;
     }
 
+    #sidebar {
+      width: 260px;
+      background: linear-gradient(to bottom, #faf8f3, #f0ede6);
+      padding: 1.5em;
+      border-left: 1px solid #dcd7cd;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+      font-family: system-ui, sans-serif;
+      font-size: 0.96em;
+      box-shadow: -2px 0 6px rgba(0, 0, 0, 0.03);
+    }
+
+    #sidebar h2 {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 1em;
+      color: #444;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    #post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #post-list li {
+      margin-bottom: 0.75em;
+      border-left: 3px solid transparent;
+      padding-left: 0.5em;
+      transition: border-color 0.2s ease;
+    }
+
+    #post-list li:hover {
+      border-left: 3px solid #8ba38e;
+    }
+
+    #post-list a {
+      text-decoration: none;
+      color: #3a5342;
+      font-weight: 500;
+    }
+
+    #post-list a:hover {
+      text-decoration: underline;
+    }
+
+    #main-content {
+      padding: 2em 1.5em 2em 1.5em;
+      margin-right: 280px;
+      max-width: 800px;
+    }
+
     h1 {
-      font-size: 2em;
-      margin-bottom: 0.3em;
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 0.2em;
     }
 
     h2 {
-      color: #555;
       font-weight: normal;
+      text-align: center;
+      color: #555;
       margin-top: 0;
       margin-bottom: 1.5em;
     }
@@ -31,82 +92,120 @@
       color: #4e6e4d;
       text-decoration: none;
       border-bottom: 1px dashed #aaa;
+      transition: border-color 0.2s ease;
     }
 
     a:hover {
-      border-bottom: 1px solid #4e6e4d;
+      color: #2c3f2b;
+      border-bottom: 1px solid #666;
     }
 
     ul {
-      margin-top: 1em;
-      padding-left: 1.2em;
+      padding-left: 1.5em;
     }
 
     footer {
-      margin-top: 4em;
+      margin-top: 5em;
       font-size: 0.9em;
       color: #888;
       text-align: center;
       border-top: 1px solid #ddd;
       padding-top: 1em;
     }
+
+    blockquote {
+      font-style: italic;
+      color: #666;
+      border-left: 4px solid #ccc;
+      padding-left: 1em;
+      margin: 2em 0;
+    }
   </style>
 </head>
 <body>
 
-  <p><a href="../index.html">&larr; Return Home</a></p>
+  <div id="sidebar">
+    <h2>📚 Posts</h2>
+    <ul id="post-list">
+      <li>Loading posts...</li>
+    </ul>
+  </div>
 
-  <h1>Eating Light: A Resilient Diet for Health and the Planet</h1>
-  <h2>Grains, greens, and the power of moderation</h2>
+  <div id="main-content">
+    <p><a href="../index.html">&larr; Return Home</a></p>
 
-  <p>For most of modern history, we’ve been taught that being wealthy meant having access to expensive, high-prestige foods: rich meats, exotic imports, endless variety. But what if true wealth is having the freedom to eat simply — and still thrive?</p>
+    <h1>Eating Light: A Resilient Diet for Health and the Planet</h1>
+    <h2>Grains, greens, and the power of moderation</h2>
 
-  <p>Over the past few years, I’ve been quietly simplifying my diet. Instead of chasing variety, I’ve leaned into wholesome staples like:</p>
+    <p>For most of modern history, we’ve been taught that being wealthy meant having access to expensive, high-prestige foods: rich meats, exotic imports, endless variety. But what if true wealth is having the freedom to eat simply — and still thrive?</p>
 
-  <ul>
-    <li>Organic <strong>quinoa</strong>, oats, and rice</li>
-    <li>In-season, locally grown <strong>vegetables</strong></li>
-    <li>Occasional animal products, treated as supplements — not staples</li>
-  </ul>
+    <p>Over the past few years, I’ve been quietly simplifying my diet. Instead of chasing variety, I’ve leaned into wholesome staples like:</p>
 
-  <p>The result? Lower costs. Better digestion. Simpler cooking. And a lifestyle that aligns with both health and environmental goals.</p>
+    <ul>
+      <li>Organic <strong>quinoa</strong>, oats, and rice</li>
+      <li>In-season, locally grown <strong>vegetables</strong></li>
+      <li>Occasional animal products, treated as supplements — not staples</li>
+    </ul>
 
-  <h2>Why It Works</h2>
+    <p>The result? Lower costs. Better digestion. Simpler cooking. And a lifestyle that aligns with both health and environmental goals.</p>
 
-  <ul>
-    <li><strong>Grains are efficient.</strong> Calorie for calorie, plant-based staples require fewer resources than animal products. Growing grains to feed humans — not livestock — is radically more efficient.</li>
-    <li><strong>Seasonal vegetables maximize nutrition</strong> and minimize transport emissions.</li>
-    <li><strong>Simple meals reduce decision fatigue</strong> and impulse spending — both in the store and at restaurants.</li>
-    <li><strong>Moderation avoids dogma.</strong> You don’t need to be vegan to benefit. Just shifting the baseline makes a difference.</li>
-  </ul>
+    <h3>Why It Works</h3>
 
-  <h2>The Case for Simplicity</h2>
-  <p>Think about what this diet supports:</p>
+    <ul>
+      <li><strong>Grains are efficient.</strong> Calorie for calorie, plant-based staples require fewer resources than animal products. Growing grains to feed humans — not livestock — is radically more efficient.</li>
+      <li><strong>Seasonal vegetables maximize nutrition</strong> and minimize transport emissions.</li>
+      <li><strong>Simple meals reduce decision fatigue</strong> and impulse spending — both in the store and at restaurants.</li>
+      <li><strong>Moderation avoids dogma.</strong> You don’t need to be vegan to benefit. Just shifting the baseline makes a difference.</li>
+    </ul>
 
-  <ul>
-    <li>🧠 Mental clarity (fewer decisions, better focus)</li>
-    <li>💰 Financial flexibility (bulk buying, fewer perishables)</li>
-    <li>🌍 Environmental impact (less land, water, and carbon)</li>
-  </ul>
+    <h3>The Case for Simplicity</h3>
+    <p>Think about what this diet supports:</p>
 
-  <p>It’s not about purity — it’s about <em>direction</em>. Every step toward lightness frees you up to live with more intention.</p>
+    <ul>
+      <li>🧠 Mental clarity (fewer decisions, better focus)</li>
+      <li>💰 Financial flexibility (bulk buying, fewer perishables)</li>
+      <li>🌍 Environmental impact (less land, water, and carbon)</li>
+    </ul>
 
-  <blockquote>
-    “A moderate man is rich, even with little.”
-  </blockquote>
+    <p>It’s not about purity — it’s about <em>direction</em>. Every step toward lightness frees you up to live with more intention.</p>
 
-  <p>If you’re looking for a way to eat that serves your body, your budget, and the bigger picture — this might be your on-ramp.</p>
+    <blockquote>
+      “A moderate man is rich, even with little.”
+    </blockquote>
 
-  <p><strong>Coming soon:</strong> recipes, bulk storage tips, and more ways to live abundantly by eating simply.</p>
+    <p>If you’re looking for a way to eat that serves your body, your budget, and the bigger picture — this might be your on-ramp.</p>
 
-  <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
-    Some links on this site may be affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you. I only recommend things that support lightness, wisdom, and resilience.
-  </p>
+    <p><strong>Coming soon:</strong> recipes, bulk storage tips, and more ways to live abundantly by eating simply.</p>
 
-  <footer>
-    &copy; 2025 GetRichAndSaveTheWorld.com — One grain at a time.
-  </footer>
-<script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
+      Some links on this site may be affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you. I only recommend things that support lightness, wisdom, and resilience.
+    </p>
+
+    <footer>
+      &copy; 2025 GetRichAndSaveTheWorld.com — One grain at a time.
+    </footer>
+  </div>
+
+  <!-- Sidebar Loader -->
+  <script>
+    fetch("posts.json")
+      .then((res) => res.json())
+      .then((posts) => {
+        const list = document.getElementById("post-list");
+        list.innerHTML = "";
+        posts.forEach((post) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "../" + post.url;
+          a.textContent = post.title;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      });
+  </script>
+
+  <!-- GoatCounter -->
+  <script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

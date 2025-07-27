@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get Rich and Save the World</title>
   <style>
     body {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0;
       font-family: "Georgia", "Times New Roman", serif;
       background-color: #f5f2eb;
       color: #2a2a2a;
+    }
+
+    #sidebar {
+      width: 260px;
+      background: linear-gradient(to bottom, #faf8f3, #f0ede6);
+      padding: 1.5em;
+      border-left: 1px solid #dcd7cd;
+      height: 100vh;
+      overflow-y: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+      font-family: system-ui, sans-serif;
+      font-size: 0.96em;
+      box-shadow: -2px 0 6px rgba(0, 0, 0, 0.03);
+    }
+
+    #sidebar h2 {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 1em;
+      color: #444;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    #post-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #post-list li {
+      margin-bottom: 0.75em;
+      border-left: 3px solid transparent;
+      padding-left: 0.5em;
+      transition: border-color 0.2s ease;
+    }
+
+    #post-list li:hover {
+      border-left: 3px solid #8ba38e;
+    }
+
+    #post-list a {
+      text-decoration: none;
+      color: #3a5342;
+      font-weight: 500;
+    }
+
+    #post-list a:hover {
+      text-decoration: underline;
+    }
+
+    #main-content {
+      padding: 2em 1.5em 2em 1.5em;
+      margin-right: 280px;
       max-width: 800px;
-      margin: auto;
-      padding: 2em 1em;
       line-height: 1.6;
     }
 
@@ -74,107 +132,115 @@
       border-top: 1px solid #ddd;
       padding-top: 1em;
     }
-
-    .post-links {
-      margin-top: 4em;
-    }
   </style>
 </head>
 <body>
-
-  <h1>Get Rich and Save the World</h1>
-  <h2>Tools and wisdom for resilient living.</h2>
-
-  <div class="creed">
-    <img src="Tablet.png" alt="Creed: Lightness, Wisdom, Resilience">
-    <p><em>Lightness · Wisdom · Resilience</em></p>
+  <div id="sidebar">
+    <h2>📚 Posts</h2>
+    <ul id="post-list">
+      <li>Loading posts...</li>
+    </ul>
   </div>
 
-  <blockquote>
-    “Wealth is the ability to live lightly and act wisely.”
-  </blockquote>
+  <div id="main-content">
+    <h1>Get Rich and Save the World</h1>
+    <h2>Tools and wisdom for resilient living.</h2>
 
-  <p>Welcome to <strong>Get Rich and Save the World</strong>.</p>
+    <div class="creed">
+      <img src="Tablet.png" alt="Creed: Lightness, Wisdom, Resilience" />
+      <p><em>Lightness · Wisdom · Resilience</em></p>
+    </div>
 
-  <p>This isn’t just a newsletter or a blog. It’s a quiet revolution.  
-  A place where personal freedom and global stewardship shake hands and walk together.</p>
+    <blockquote>“Wealth is the ability to live lightly and act wisely.”</blockquote>
 
-  <p>Here, we believe:</p>
-  <ul>
-    <li>You can become <strong>financially resilient</strong> without becoming extractive.</li>
-    <li>You can live <strong>lightly</strong> and still <strong>live well</strong>.</li>
-    <li>The systems are shifting — and with the right knowledge and tools, you can <strong>thrive through it</strong>, not just survive.</li>
-  </ul>
+    <p>Welcome to <strong>Get Rich and Save the World</strong>.</p>
 
-  <p>Every post you’ll find here is designed to help you:</p>
-  <ul>
-    <li>🌞 Save energy, money, and sanity</li>
-    <li>🔋 Invest in resilience for your home and life</li>
-    <li>🌱 Live with intention, not reaction</li>
-  </ul>
+    <p>This isn’t just a newsletter or a blog. It’s a quiet revolution.  
+      A place where personal freedom and global stewardship shake hands and walk together.
+    </p>
 
-  <blockquote>“To the mind that is still, the whole universe surrenders.”</blockquote>
+    <p>Here, we believe:</p>
+    <ul>
+      <li>You can become <strong>financially resilient</strong> without becoming extractive.</li>
+      <li>You can live <strong>lightly</strong> and still <strong>live well</strong>.</li>
+      <li>The systems are shifting — and with the right knowledge and tools, you can <strong>thrive through it</strong>, not just survive.</li>
+    </ul>
 
-  <p>This is your still place. Welcome.</p>
+    <p>Every post you’ll find here is designed to help you:</p>
+    <ul>
+      <li>🌞 Save energy, money, and sanity</li>
+      <li>🔋 Invest in resilience for your home and life</li>
+      <li>🌱 Live with intention, not reaction</li>
+    </ul>
 
-  <hr style="margin: 3em 0;">
+    <blockquote>“To the mind that is still, the whole universe surrenders.”</blockquote>
 
-  <h2>Why Get Rich and Save the World?</h2>
+    <p>This is your still place. Welcome.</p>
 
-  <p>Let’s be honest.  
-  Most people are either chasing wealth or trying to fix a broken planet — rarely both.</p>
+    <hr style="margin: 3em 0;" />
 
-  <p>But what if you could:</p>
-  <ul>
-    <li>Spend less, own better gear, and become more independent</li>
-    <li>Share tools and wisdom that help others do the same</li>
-    <li>And maybe earn a little along the way, without ever pushing garbage?</li>
-  </ul>
+    <h2>Why Get Rich and Save the World?</h2>
 
-  <p>This site is an experiment in alignment:</p>
-  <ul>
-    <li>Between wealth and wisdom</li>
-    <li>Between action and rest</li>
-    <li>Between living well and living right</li>
-  </ul>
+    <p>Let’s be honest. Most people are either chasing wealth or trying to fix a broken planet — rarely both.</p>
 
-  <p>We’ll keep it simple:</p>
-  <ul>
-    <li>One post at a time</li>
-    <li>One reader at a time</li>
-    <li>One insight, one tool, one ripple at a time</li>
-  </ul>
+    <p>But what if you could:</p>
+    <ul>
+      <li>Spend less, own better gear, and become more independent</li>
+      <li>Share tools and wisdom that help others do the same</li>
+      <li>And maybe earn a little along the way, without ever pushing garbage?</li>
+    </ul>
 
-  <p>If that excites something deep in your chest — even quietly —  
-  then you’re in the right place.</p>
+    <p>This site is an experiment in alignment:</p>
+    <ul>
+      <li>Between wealth and wisdom</li>
+      <li>Between action and rest</li>
+      <li>Between living well and living right</li>
+    </ul>
 
-  <p>Welcome.  
-  Let’s get rich and save the world.</p>
+    <p>We’ll keep it simple:</p>
+    <ul>
+      <li>One post at a time</li>
+      <li>One reader at a time</li>
+      <li>One insight, one tool, one ripple at a time</li>
+    </ul>
 
-  <div class="post-links">
-    <h3>Latest Posts</h3>
-    <div id="post-list"></div>
-    <script>
-      fetch('posts/posts-list.html')
-        .then(response => response.text())
-        .then(html => {
-          document.getElementById('post-list').innerHTML = html;
+    <p>If that excites something deep in your chest — even quietly — then you’re in the right place.</p>
+
+    <p>Welcome. Let’s get rich and save the world.</p>
+
+    <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
+      Some links on this site may be affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you.
+      <br /><br />
+      I only ever link to things I’ve personally vetted and believe support resilience, lightness, and wisdom.
+      <br /><br />
+      If a link feels right to follow, follow it. If not, let it pass like a cloud.
+    </p>
+
+    <footer>
+      &copy; 2025 GetRichAndSaveTheWorld.com — Built with stillness, not stress.
+    </footer>
+  </div>
+
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <!-- Load sidebar posts -->
+  <script>
+    fetch("/posts/posts.json")
+      .then(res => res.json())
+      .then(posts => {
+        const list = document.getElementById("post-list");
+        list.innerHTML = "";
+        posts.forEach(post => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = '/' + post.url;
+          a.textContent = post.title;
+          li.appendChild(a);
+          list.appendChild(li);
         });
-    </script>
-  </div>
-
-  <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
-    Some links on this site may be affiliate links. That means if you choose to buy something, I may receive a small commission — at no extra cost to you.
-    <br><br>
-    I only ever link to things I’ve personally vetted and believe support resilience, lightness, and wisdom.
-    <br><br>
-    If a link feels right to follow, follow it. If not, let it pass like a cloud.
-  </p>
-
-  <footer>
-    &copy; 2025 GetRichAndSaveTheWorld.com — Built with stillness, not stress.
-  </footer>
-<script data-goatcounter="https://getrichandsavetheworld.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+      });
+  </script>
 </body>
 </html>
