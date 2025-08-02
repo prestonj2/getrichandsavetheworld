@@ -69,7 +69,7 @@
     }
 
     #main-content {
-      padding: 2em 1.5em 2em 1.5em;
+      padding: 2em 1.5em;
       margin-right: 280px;
       max-width: 800px;
     }
@@ -119,6 +119,43 @@
       border-left: 4px solid #ccc;
       padding-left: 1em;
       margin: 2em 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column !important;
+      }
+
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid #dcd7cd;
+        box-shadow: none;
+      }
+
+      #main-content {
+        margin-right: 0;
+        padding: 1.5em;
+      }
+
+      #sidebar h2 {
+        text-align: center;
+      }
+
+      #post-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+      }
+
+      #post-list li {
+        margin: 0.5em 1em;
+        border-left: none;
+        padding-left: 0;
+      }
     }
   </style>
 </head>

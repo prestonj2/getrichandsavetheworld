@@ -131,6 +131,46 @@
       border-top: 1px solid #ddd;
       padding-top: 1em;
     }
+
+    /* Mobile layout fix */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      #sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid #dcd7cd;
+        box-shadow: none;
+        order: 2;
+      }
+
+      #main-content {
+        margin-right: 0;
+        padding: 1.5em;
+        order: 1;
+      }
+
+      #sidebar h2 {
+        text-align: center;
+      }
+
+      #post-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+      }
+
+      #post-list li {
+        margin: 0.5em 1em;
+        border-left: none;
+        padding-left: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -217,8 +257,6 @@
     <h3>Final Thought</h3>
 
     <p>RO water isn’t just about taste — it’s about control. When you know what’s in your water, you drink more of it, waste less money, and reduce your reliance on disposable systems.</p>
-
-    <p>And if you don’t love your well water or can’t trust your town’s pipes, this is a small step that can bring big peace of mind.</p>
 
     <p style="font-size: 0.9em; color: #666; margin-top: 4em;">
       Note: Some links on this page may be affiliate links. That means I may earn a small commission — at no cost to you — if you choose to purchase. I only recommend tools I’ve personally used or vetted.
