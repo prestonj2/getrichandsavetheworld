@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoltLink Heartbeat</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; 
+         max-width: 820px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  header { margin-bottom: 1rem; }
+  .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 1rem 1.25rem; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+  .ok { color: #0a7e28; font-weight: 700; }
+  .bad { color: #b00020; font-weight: 700; }
+  .muted { color: #6b7280; }
+  .k { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+</style>
+<header>
+  <h1>VoltLink Heartbeat</h1>
+  <p class="muted">Public status snapshot pushed from Base Pi (outbound only).</p>
+</header>
+<main>
+  <div class="card" id="statusCard">Loading…</div>
+</main>
+<script>
+(async () => {
+  try {
+    const r = await fetch('./status.json', {cache: 'no-store'});
+    const data = await r.json();
+    const ok = !!(data.broker_active && data.round_trip_ok);
+    const el = document.getElementById('statusCard');
+    el.innerHTML = `
+      <div>Status: <span class="${ok?'ok':'bad'}">${ok?'Broker: OK':'Broker: Issue'}</span></div>
+      <div>Updated: <span class="k">${new Date(data.timestamp).toLocaleString()}</span></div>
+      <div class="muted">rtt_ms: <span class="k">${data.rtt_ms ?? 'n/a'}</span></div>
+      <div class="muted">base_host: <span class="k">${data.base_host ?? 'n/a'}</span></div>
+      <div class="muted">source: <span class="k">status.json</span></div>`;
+  } catch(e) {
+    const el = document.getElementById('statusCard');
+    el.innerHTML = '<div class="bad">Unable to load status.json</div><div class="muted">Check that cron is pushing updates to the Pages repo.</div>';
+  }
+})();
+</script>
+</html>
