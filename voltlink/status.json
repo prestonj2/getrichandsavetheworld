@@ -1,8 +1,8 @@
 {
   "avg_temp": 76.3,
   "avg_hum": 54.0,
-  "updated": "2025-10-22T17:03:20Z",
-  "updated_epoch": 1761152600,
+  "updated": "2025-10-22T17:05:24Z",
+  "updated_epoch": 1761152724,
   "broker": "OK",
   "ok": true
 }
