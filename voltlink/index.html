@@ -22,21 +22,43 @@
 </main>
 <script>
 (async () => {
+  const el = document.getElementById('statusCard');
   try {
-    const r = await fetch('./status.json', {cache: 'no-store'});
+    const r = await fetch('./status.json', { cache: 'no-store' });
     const data = await r.json();
-    const ok = !!(data.broker_active && data.round_trip_ok);
-    const el = document.getElementById('statusCard');
+
+    // Back-compat booleans
+    const legacyOK = (data.broker_active && data.round_trip_ok) === true;
+    const newOK    = (data.broker === 'OK') || (data.ok === true);
+    const ok = !!(legacyOK || newOK);
+
+    // Back-compat timestamp -> prefer epoch, then ISO, then legacy timestamp
+    const epoch = (typeof data.updated_epoch === 'number') ? data.updated_epoch : null;
+    const iso   = typeof data.updated === 'string' ? data.updated : (typeof data.timestamp === 'string' ? data.timestamp : null);
+    const when  = epoch ? new Date(epoch * 1000) : (iso ? new Date(iso) : new Date(NaN));
+    const whenStr = isNaN(when.getTime()) ? 'Unknown' : when.toLocaleString();
+
+    // Optional: show env rollup if present
+    const env = (data.avg_temp != null || data.avg_hum != null)
+      ? `<div class="muted">env avg: <span class="k">${data.avg_temp ?? '—'}°F, ${data.avg_hum ?? '—'}%</span></div>`
+      : '';
+
     el.innerHTML = `
       <div>Status: <span class="${ok?'ok':'bad'}">${ok?'Broker: OK':'Broker: Issue'}</span></div>
-      <div>Updated: <span class="k">${new Date(data.timestamp).toLocaleString()}</span></div>
+      <div>Updated: <span class="k">${whenStr}</span></div>
+      ${env}
       <div class="muted">rtt_ms: <span class="k">${data.rtt_ms ?? 'n/a'}</span></div>
       <div class="muted">base_host: <span class="k">${data.base_host ?? 'n/a'}</span></div>
       <div class="muted">source: <span class="k">status.json</span></div>`;
-  } catch(e) {
-    const el = document.getElementById('statusCard');
-    el.innerHTML = '<div class="bad">Unable to load status.json</div><div class="muted">Check that cron is pushing updates to the Pages repo.</div>';
+  } catch (e) {
+    el.innerHTML = '<div class="bad">Unable to load status.json</div><div class="muted">Check that the push script updated the Pages repo.</div>';
   }
 })();
 </script>
+
+  
+
+
+
+  
 </html>
