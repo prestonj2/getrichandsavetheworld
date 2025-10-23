@@ -12,6 +12,7 @@
   .bad { color: #b00020; font-weight: 700; }
   .muted { color: #6b7280; }
   .k { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  .row { display: grid; grid-template-columns: 180px 1fr; gap: .5rem 1rem; margin-top: .35rem; }
 </style>
 <header>
   <h1>VoltLink Heartbeat</h1>
@@ -32,33 +33,61 @@
     const newOK    = (data.broker === 'OK') || (data.ok === true);
     const ok = !!(legacyOK || newOK);
 
-    // Back-compat timestamp -> prefer epoch, then ISO, then legacy timestamp
+    // Timestamp (prefer epoch, then ISO)
     const epoch = (typeof data.updated_epoch === 'number') ? data.updated_epoch : null;
-    const iso   = typeof data.updated === 'string' ? data.updated : (typeof data.timestamp === 'string' ? data.timestamp : null);
+    const iso   = typeof data.updated === 'string' ? data.updated
+                : (typeof data.timestamp === 'string' ? data.timestamp : null);
     const when  = epoch ? new Date(epoch * 1000) : (iso ? new Date(iso) : new Date(NaN));
     const whenStr = isNaN(when.getTime()) ? 'Unknown' : when.toLocaleString();
 
-    // Optional: show env rollup if present
-    const env = (data.avg_temp != null || data.avg_hum != null)
+    // Helpers
+    const toFixed = (n, d=1) => (Number.isFinite(n) ? n.toFixed(d) : '—');
+    const c2f = (c) => Number.isFinite(c) ? (c * 9/5) + 32 : NaN;
+
+    // New fields (with graceful fallback)
+    const cpuC = Number(data.cpu_temp_c);
+    const ambC = Number(data.ambient_temp_c);
+    const hum  = Number(data.ambient_humidity);
+
+    const cpuF = c2f(cpuC);
+    const ambF = c2f(ambC);
+
+    // Optional legacy env rollup (kept)
+    const envLegacy = (data.avg_temp != null || data.avg_hum != null)
       ? `<div class="muted">env avg: <span class="k">${data.avg_temp ?? '—'}°F, ${data.avg_hum ?? '—'}%</span></div>`
       : '';
 
     el.innerHTML = `
-      <div>Status: <span class="${ok?'ok':'bad'}">${ok?'Broker: OK':'Broker: Issue'}</span></div>
-      <div>Updated: <span class="k">${whenStr}</span></div>
-      ${env}
-      <div class="muted">rtt_ms: <span class="k">${data.rtt_ms ?? 'n/a'}</span></div>
-      <div class="muted">base_host: <span class="k">${data.base_host ?? 'n/a'}</span></div>
-      <div class="muted">source: <span class="k">status.json</span></div>`;
+      <div class="row"><div>Status</div><div><span class="${ok?'ok':'bad'}">${ok?'Broker: OK':'Broker: Issue'}</span></div></div>
+      <div class="row"><div>Updated</div><div class="k">${whenStr}</div></div>
+      <div class="row"><div>RTT</div><div class="k">${data.rtt_ms ?? 'n/a'} ms</div></div>
+      <div class="row"><div>Base host</div><div class="k">${data.base_host ?? 'n/a'}</div></div>
+
+      ${envLegacy}
+
+      <div class="row"><div>CPU Temp</div>
+        <div class="k">${
+          Number.isFinite(cpuC) ? `${toFixed(cpuC,1)}°C (${toFixed(cpuF,1)}°F)` : '—'
+        }</div>
+      </div>
+
+      <div class="row"><div>Ambient Temp</div>
+        <div class="k">${
+          Number.isFinite(ambC) ? `${toFixed(ambC,1)}°C (${toFixed(ambF,1)}°F)` : '—'
+        }</div>
+      </div>
+
+      <div class="row"><div>Ambient Humidity</div>
+        <div class="k">${
+          Number.isFinite(hum) ? `${toFixed(hum,0)}%` : '—'
+        }</div>
+      </div>
+
+      <div class="row"><div>Source</div><div class="muted k">status.json</div></div>
+    `;
   } catch (e) {
     el.innerHTML = '<div class="bad">Unable to load status.json</div><div class="muted">Check that the push script updated the Pages repo.</div>';
   }
 })();
 </script>
-
-  
-
-
-
-  
 </html>
