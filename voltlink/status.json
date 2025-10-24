@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-10-24T03:43:13-04:00",
+  "timestamp": "2025-10-24T03:45:13-04:00",
   "broker_active": true,
   "round_trip_ok": true,
-  "rtt_ms": 5,
+  "rtt_ms": 6,
   "base_host": "volt-base-01"
-  ,"cpu_temp_c": 46.6
+  ,"cpu_temp_c": 45.5
   ,"ambient_temp_c": 22.8
   ,"ambient_humidity": 41
 }
